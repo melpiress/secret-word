@@ -1,18 +1,15 @@
-/* src/components/Keyboard.css */
-
 .keyboard {
   display: grid;
-  grid-template-columns: repeat(10, 1fr); /* 10 colunas = teclado alinhado */
+  grid-template-columns: repeat(10, 1fr); 
   gap: 8px;
   justify-content: center;
   width: 100%;
   max-width: 600px;
-  margin: 1.5rem auto; /* centraliza horizontalmente */
+  margin: 1.5rem auto; 
   padding: 0 10px;
   box-sizing: border-box;
 }
 
-/* teclas */
 .key {
   height: 44px;
   border-radius: 8px;
@@ -40,7 +37,6 @@
   cursor: not-allowed;
 }
 
-/* 📱 Responsividade */
 @media (max-width: 640px) {
   .keyboard {
     grid-template-columns: repeat(7, 1fr);

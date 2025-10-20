@@ -1,4 +1,3 @@
-// src/components/Game.jsx
 import { useState, useRef } from "react";
 import "./Game.css";
 import Keyboard from "./Keyboard";
@@ -77,7 +76,6 @@ const Game = ({
         ))}
       </div>
 
-      {/* TECLADO VIRTUAL */}
       <Keyboard
         verifyLetter={verifyLetter}
         guessedLetters={guessedLetters}

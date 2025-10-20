@@ -1,8 +1,6 @@
-// src/components/Keyboard.jsx
 import "./Keyboard.css";
 
 const Keyboard = ({ verifyLetter, guessedLetters = [], wrongLetters = [] }) => {
-  // alfabeto em minúsculas (vamos enviar lowercase para verifyLetter)
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
   const isDisabled = (letter) =>
