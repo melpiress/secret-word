@@ -1,0 +1,61 @@
+/* src/components/Keyboard.css */
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 colunas = teclado alinhado */
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 1.5rem auto; /* centraliza horizontalmente */
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* teclas */
+.key {
+  height: 44px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.08s ease, opacity 0.12s ease, background 0.15s;
+  user-select: none;
+}
+
+.key:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.key:active {
+  transform: translateY(1px) scale(0.97);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.key[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* 📱 Responsividade */
+@media (max-width: 640px) {
+  .keyboard {
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 420px) {
+  .keyboard {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 340px;
+  }
+
+  .key {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}

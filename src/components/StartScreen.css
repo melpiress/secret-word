@@ -1,0 +1,24 @@
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.start h1 {
+  font-size: 3.5em;
+}
+
+.start select {
+  margin: 10px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.start .choice {
+    display: flex;
+    flex-direction: column;
+}
