@@ -25,7 +25,6 @@ function App() {
 
   const [difficulty, setDifficulty] = useState("easy");
 
-  // Função para normalizar letras (remove acentos)
   const normalizeLetter = (letter) => {
     return letter
       .toLowerCase()
@@ -33,7 +32,6 @@ function App() {
       .replace(/[\u0300-\u036f]/g, "");
   };
 
-  // Escolhe palavra e categoria
   const pickWordAndCategory = () => {
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
@@ -42,7 +40,6 @@ function App() {
     return { word, category };
   };
 
-  // Inicia o jogo
   const startGame = () => {
     const initialGuesses = difficulty === "hard" ? 2 : 5;
     setGuesses(initialGuesses);
@@ -59,7 +56,6 @@ function App() {
     setGameStage(stages[1].name);
   };
 
-  // Verifica a letra jogada
   const verifyLetter = (letter) => {
     const normalizedLetter = normalizeLetter(letter);
 
@@ -78,16 +74,14 @@ function App() {
     }
   };
 
-  // Condição de derrota
   useEffect(() => {
     if (guesses <= 0) {
       const currentHighScore = parseInt(localStorage.getItem("highscore")) || 0;
       if (score > currentHighScore) localStorage.setItem("highscore", score);
-      setGameStage(stages[2].name); // GameOver só na derrota
+      setGameStage(stages[2].name); 
     }
   }, [guesses, score]);
 
-  // Condição de vitória - inicia nova rodada
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
     const allGuessed = uniqueLetters.every((l) =>
@@ -98,16 +92,13 @@ function App() {
       const newScore = score + 100;
       setScore(newScore);
 
-      // salva highscore se ultrapassou
       const currentHighScore = parseInt(localStorage.getItem("highscore")) || 0;
       if (newScore > currentHighScore) localStorage.setItem("highscore", newScore);
 
-      // inicia nova rodada automaticamente
       startGame();
     }
   }, [guessedLetters, letters, score]);
 
-  // Reinicia o jogo
   const retry = () => {
     setScore(0);
     setGuesses(difficulty === "hard" ? 2 : 5);
